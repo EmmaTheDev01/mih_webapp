@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Section from '../components/common/Section';
-import ThreeCanvas from '../components/common/ThreeCanvas';
-import FloatingSpiral from '../components/three/FloatingSpiral';
+// Temporarily removing ThreeJS imports while fixing compatibility
+// import ThreeCanvas from '../components/common/ThreeCanvas';
+// import FloatingSpiral from '../components/three/FloatingSpiral';
 
 // Placeholder gallery items - replace with actual content in production
 const galleryItems = [
@@ -117,11 +118,8 @@ export default function Gallery() {
 
   return (
     <div className="bg-gray-50 min-h-screen pt-20">
-      {/* Three.js Animation Background */}
-      <div className="relative h-64 overflow-hidden bg-gray-900">
-        <ThreeCanvas className="w-full h-full opacity-70">
-          <FloatingSpiral />
-        </ThreeCanvas>
+      {/* Static Header (temporarily replacing Three.js Animation) */}
+      <div className="relative h-64 overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white">Gallery</h1>
         </div>

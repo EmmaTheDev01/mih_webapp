@@ -31,9 +31,9 @@ export default function Button({
   };
   
   const sizeClasses = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2',
-    lg: 'px-6 py-3 text-lg'
+    sm: 'px-[10px] py-[10px] text-sm',
+    md: 'px-[10px] py-[10px]',
+    lg: 'px-[10px] py-[10px] text-lg'
   };
   
   const widthClass = fullWidth ? 'w-full' : '';

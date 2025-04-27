@@ -2,18 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
-import ThreeCanvas from '../common/ThreeCanvas';
-import ParticlesAnimation from '../three/ParticlesAnimation';
+// Temporarily removing ThreeJS imports while fixing compatibility
+// import ThreeCanvas from '../common/ThreeCanvas';
+// import ParticlesAnimation from '../three/ParticlesAnimation';
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen flex items-center">
-      {/* Background animation */}
-      <div className="absolute inset-0 z-0">
-        <ThreeCanvas className="w-full h-full">
-          <ParticlesAnimation count={1500} color="#1E3A8A" />
-        </ThreeCanvas>
-      </div>
+    <section className="relative h-screen flex items-center bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+      {/* Static background (temporarily replacing Three.js animation) */}
       
       {/* Content */}
       <div className="container mx-auto px-4 z-10 relative">

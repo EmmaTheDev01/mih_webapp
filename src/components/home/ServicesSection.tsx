@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Section from '../common/Section';
-import ThreeCanvas from '../common/ThreeCanvas';
-import InteractiveCube from '../three/InteractiveCube';
+// Temporarily removing ThreeJS imports while fixing compatibility
+// import ThreeCanvas from '../common/ThreeCanvas';
+// import InteractiveCube from '../three/InteractiveCube';
 
 const services = [
   {
@@ -107,12 +108,8 @@ export default function ServicesSection() {
         </motion.p>
       </div>
 
-      {/* Interactive 3D element */}
-      <div className="relative h-40 mb-16">
-        <ThreeCanvas>
-          <InteractiveCube position={[0, 0, 0]} />
-        </ThreeCanvas>
-      </div>
+      {/* Static divider (temporarily replacing Interactive 3D element) */}
+      <div className="relative h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full max-w-md mx-auto mb-16"></div>
       
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
