@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@splinetool/loader": "^1.9.89",
+    "@splinetool/r3f-spline": "^1.0.2",
+    "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.9.89",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -11,16 +17,23 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "ajv": "^8.17.1",
+    "ajv-keywords": "^3.5.2",
     "axios": "^1.9.0",
     "date-fns": "^4.1.0",
     "firebase": "^11.6.1",
     "framer-motion": "^12.9.2",
+    "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.56.1",
     "react-router-dom": "^7.5.2",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
+    "react-scripts": "^5.0.1",
+    "react-three": "^0.9.7",
+    "three": "^0.160.1",
+    "three-mesh-bvh": "^0.8.0",
+    "typescript": "^5.8.3",
+    "vanta": "^0.5.24",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -48,7 +61,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/helper-define-polyfill-provider": "^0.6.4",
+    "@babel/preset-env": "^7.27.1",
+    "@types/three": "^0.176.0",
     "autoprefixer": "^10.4.21",
+    "babel-plugin-polyfill-corejs3": "^0.12.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.3.0"
   }
