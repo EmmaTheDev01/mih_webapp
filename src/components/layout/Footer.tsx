@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Musanze<span className="text-primary">Hub</span></h3>
+            <h3 className="text-xl font-bold mb-4">Musanze Innovation<span className="text-primary"> Hub</span></h3>
             <p className="mb-4 text-gray-300">
               Empowering innovation and creativity in the heart of Rwanda.
             </p>

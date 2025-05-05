@@ -75,6 +75,8 @@ export default function GalleryPreview() {
           See what's happening at Musanze Innovation Hub
         </motion.p>
       </div>
+
+      <div className="relative h-1 bg-gradient-to-r from-[#d30f12] to-[#d30f13] rounded-full max-w-md mx-auto mb-16"></div>
       
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"

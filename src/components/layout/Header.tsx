@@ -25,7 +25,7 @@ export default function Header() {
           <img
             src={logo}
             alt="Hanga Hubs logo"
-            className="h-full w-auto object-contain"
+            className="h-full w-auto object-cover"
           />
         </Link>
 

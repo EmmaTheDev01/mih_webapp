@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
-import Section from '../components/common/Section';
-import Button from '../components/common/Button';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
+import Section from "../components/common/Section";
+import Button from "../components/common/Button";
 
 type FormData = {
   companyName: string;
@@ -18,84 +18,150 @@ type FormData = {
 const talentProfiles = [
   {
     id: 1,
-    name: 'Jean Mugabo',
-    role: 'Full Stack Developer',
-    image: 'https://i.pravatar.cc/300?img=11',
-    skills: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
-    experience: '3+ years',
-    education: 'BSc Computer Science, University of Rwanda',
-    bio: 'Experienced full stack developer with a passion for creating scalable web applications.',
+    name: "King E. Tuyishimire",
+    role: "Arts and Woodworks",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmvDcu8m5H34vk_rLKMvR4e3YZ1MuIrseXzw&s",
+    skills: ["Bamboo", "Craftwork", "", "TypeScript"],
+    experience: "3+ years",
+    education: "BSc Computer Science, University of Rwanda",
+    bio: "Renowned globally in crafts and woodwork, a passion for creating scalable bamboo products.",
   },
-  {
-    id: 2,
-    name: 'Alice Uwase',
-    role: 'UI/UX Designer',
-    image: 'https://i.pravatar.cc/300?img=5',
-    skills: ['Figma', 'Adobe XD', 'User Research', 'Prototyping'],
-    experience: '4+ years',
-    education: 'BA Design, Rwanda Creative Institute',
-    bio: 'Creative designer focused on crafting beautiful and intuitive digital experiences.',
-  },
+
   {
     id: 3,
-    name: 'Robert Karemera',
-    role: 'Data Scientist',
-    image: 'https://i.pravatar.cc/300?img=3',
-    skills: ['Python', 'Machine Learning', 'Data Analysis', 'TensorFlow'],
-    experience: '2+ years',
-    education: 'MSc Data Science, African Institute of Technology',
-    bio: 'Data enthusiast with expertise in machine learning and predictive analytics.',
-  },
-  {
-    id: 4,
-    name: 'Marie Ingabire',
-    role: 'Mobile Developer',
-    image: 'https://i.pravatar.cc/300?img=9',
-    skills: ['React Native', 'Flutter', 'iOS', 'Android'],
-    experience: '3+ years',
-    education: 'BSc Software Engineering, Kigali Institute',
-    bio: 'Mobile app developer specialized in creating cross-platform applications.',
+    name: "Emm Habumugisha",
+    role: "Data Scientist",
+    image:
+      "https://d2gjqh9j26unp0.cloudfront.net/profilepic/5436d85762d64880a3db642b2deb96ca",
+    skills: ["Python", "Machine Learning", "Data Analysis", "TensorFlow"],
+    experience: "4+ years",
+    education: "MSc Data Science, African Institute of Technology",
+    bio: "Data enthusiast with expertise in machine learning and predictive analytics.",
   },
 ];
-
 const skillOptions = [
-  'React', 'Angular', 'Vue.js', 'Node.js', 'Python', 'Java', 'PHP',
-  'JavaScript', 'TypeScript', 'C#', '.NET', 'Ruby', 'Ruby on Rails',
-  'HTML', 'CSS', 'SASS', 'UI/UX Design', 'Figma', 'Adobe XD',
-  'iOS Development', 'Android Development', 'React Native', 'Flutter',
-  'AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes', 'DevOps',
-  'Data Science', 'Machine Learning', 'Data Analysis', 'SQL', 'NoSQL',
-  'MongoDB', 'PostgreSQL', 'MySQL', 'GraphQL', 'REST API'
+  "React",
+  "Bamboo Craft",
+  "Python",
+  "3D Printing",
+  "Node.js",
+  "SketchUp",
+  "UI/UX Design",
+  "Woodworking",
+  "JavaScript",
+  "SolidWorks",
+  "Machine Learning",
+  "CNC Machining",
+  "Flutter",
+  "SQL",
+  "Adobe XD",
+  "Ruby on Rails",
+  "Figma",
+  "HTML",
+  "Docker",
+  "Laser Cutting",
+  "3D Design",
+  "Java",
+  "Product Design",
+  "TypeScript",
+  "AutoCAD",
+  "MongoDB",
+  "Vue.js",
+  "GraphQL",
+  "Data Analysis",
+  "C#",
+  "NoSQL",
+  "AWS",
+  "Android Development",
+  "iOS Development",
+  "PHP",
+  "Kubernetes",
+  "DevOps",
+  "PostgreSQL",
+  "REST API",
+  "MySQL",
+  "Angular",
+  ".NET",
+  "Ruby",
+  "GCP",
+  "Azure",
+  "Fusion 360",
+  "Problem Solving",
+  "Public Speaking",
+  "Project Management",
+  "Team Collaboration",
+  "Design Thinking",
+  "Business Model Canvas",
+  "Entrepreneurship",
+  "Prototyping",
+  "Networking",
+  "Version Control (Git)",
+  "Testing & QA",
+  "API Integration",
+  "Digital Fabrication",
+  "Graphic Design",
+  "Logo Design",
+  "Copywriting",
+  "Blog Writing",
+  "SEO Optimization",
+  "Social Media Management",
+  "Email Marketing",
+  "Virtual Assistance",
+  "Video Editing",
+  "Photography",
+  "Voice Over",
+  "Transcription",
+  "Data Entry",
+  "Customer Support",
+  "Translation",
+  "Web Design",
+  "Online Tutoring",
+  "Resume Writing",
+  "Proofreading",
+  "E-commerce Management",
+  "Affiliate Marketing",
+  "Brand Strategy",
+  "Podcast Editing",
+  "Content Strategy",
+  "Presentation Design",
 ];
 
 export default function HireTalent() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const [selectedProfile, setSelectedProfile] = useState<typeof talentProfiles[0] | null>(null);
+  const [error, setError] = useState("");
+  const [selectedProfile, setSelectedProfile] = useState<
+    (typeof talentProfiles)[0] | null
+  >(null);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-
+  const [showAllSkills, setShowAllSkills] = useState(false);
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-      setError('');
-      
+      setError("");
+
       // Add selected skills to form data
       data.skills = selectedSkills;
-      
+
       // This is a placeholder for the actual submission logic
-      console.log('Talent request data:', data);
-      
+      console.log("Talent request data:", data);
+
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       setSuccess(true);
       reset();
       setSelectedSkills([]);
     } catch (err) {
-      console.error('Error submitting talent request:', err);
-      setError('Failed to submit request. Please try again later.');
+      console.error("Error submitting talent request:", err);
+      setError("Failed to submit request. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -103,13 +169,13 @@ export default function HireTalent() {
 
   const toggleSkill = (skill: string) => {
     if (selectedSkills.includes(skill)) {
-      setSelectedSkills(selectedSkills.filter(s => s !== skill));
+      setSelectedSkills(selectedSkills.filter((s) => s !== skill));
     } else {
       setSelectedSkills([...selectedSkills, skill]);
     }
   };
 
-  const openProfile = (profile: typeof talentProfiles[0]) => {
+  const openProfile = (profile: (typeof talentProfiles)[0]) => {
     setSelectedProfile(profile);
   };
 
@@ -121,16 +187,19 @@ export default function HireTalent() {
     <div className="bg-gray-50 min-h-screen pt-20">
       <Section>
         <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Hire Top Talent</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Hire Top Talent
+          </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Connect with skilled professionals from our community for your projects and job opportunities
+            Connect with skilled professionals from our community for your
+            projects and job opportunities
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-bold mb-6">Featured Talent</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {talentProfiles.map((profile) => (
                 <motion.div
@@ -150,7 +219,9 @@ export default function HireTalent() {
                     <div className="ml-4">
                       <h3 className="font-bold text-lg">{profile.name}</h3>
                       <p className="text-primary">{profile.role}</p>
-                      <p className="text-gray-600 text-sm">{profile.experience} experience</p>
+                      <p className="text-gray-600 text-sm">
+                        {profile.experience} experience
+                      </p>
                     </div>
                   </div>
                   <div className="px-4 pb-4">
@@ -174,38 +245,98 @@ export default function HireTalent() {
               ))}
             </div>
           </div>
-          
+
           <div>
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-2xl font-bold mb-4">Why Hire Our Talent?</h2>
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="h-6 w-6 text-primary mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                   <span>Pre-vetted professionals with verified skills</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="h-6 w-6 text-primary mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                   <span>Diverse talent pool with various specializations</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="h-6 w-6 text-primary mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  <span>Flexible hiring options: project-based, part-time, or full-time</span>
+                  <span>
+                    Flexible hiring options: project-based, part-time, or
+                    full-time
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="h-6 w-6 text-primary mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  <span>Ongoing support and guidance throughout the hiring process</span>
+                  <span>
+                    Ongoing support and guidance throughout the hiring process
+                  </span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="h-6 w-6 text-primary mr-2 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                   <span>Local talent with global standards and experience</span>
                 </li>
@@ -213,10 +344,12 @@ export default function HireTalent() {
             </div>
           </div>
         </div>
-        
+
         <div className="max-w-4xl mx-auto" id="hire-form">
-          <h2 className="text-2xl font-bold mb-6 text-center">Submit a Talent Request</h2>
-          
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            Submit a Talent Request
+          </h2>
+
           {success ? (
             <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
               <svg
@@ -233,110 +366,156 @@ export default function HireTalent() {
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Request Submitted!</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Request Submitted!
+              </h3>
               <p className="text-gray-600 mb-6">
-                Thank you for your talent request. Our team will review your requirements and get back to you shortly.
+                Thank you for your talent request. Our team will review your
+                requirements and get back to you shortly.
               </p>
-              <Button onClick={() => setSuccess(false)}>Submit Another Request</Button>
+              <Button onClick={() => setSuccess(false)}>
+                Submit Another Request
+              </Button>
             </div>
           ) : (
             <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
               {error && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6" role="alert">
+                <div
+                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6"
+                  role="alert"
+                >
                   <span className="block sm:inline">{error}</span>
                 </div>
               )}
-              
+
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="companyName"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Company Name*
                     </label>
                     <input
                       id="companyName"
                       type="text"
-                      {...register('companyName', { required: 'Company name is required' })}
+                      {...register("companyName", {
+                        required: "Company name is required",
+                      })}
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     />
                     {errors.companyName && (
-                      <p className="mt-1 text-sm text-red-600">{errors.companyName.message}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.companyName.message}
+                      </p>
                     )}
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="contactName" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="contactName"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Contact Person*
                     </label>
                     <input
                       id="contactName"
                       type="text"
-                      {...register('contactName', { required: 'Contact name is required' })}
+                      {...register("contactName", {
+                        required: "Contact name is required",
+                      })}
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     />
                     {errors.contactName && (
-                      <p className="mt-1 text-sm text-red-600">{errors.contactName.message}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.contactName.message}
+                      </p>
                     )}
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Email Address*
                     </label>
                     <input
                       id="email"
                       type="email"
-                      {...register('email', { 
-                        required: 'Email is required',
+                      {...register("email", {
+                        required: "Email is required",
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: 'Invalid email address',
-                        }
+                          message: "Invalid email address",
+                        },
                       })}
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.email.message}
+                      </p>
                     )}
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Phone Number*
                     </label>
                     <input
                       id="phone"
                       type="tel"
-                      {...register('phone', { required: 'Phone number is required' })}
+                      {...register("phone", {
+                        required: "Phone number is required",
+                      })}
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     />
                     {errors.phone && (
-                      <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.phone.message}
+                      </p>
                     )}
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="jobTitle"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Job Title*
                     </label>
                     <input
                       id="jobTitle"
                       type="text"
-                      {...register('jobTitle', { required: 'Job title is required' })}
+                      {...register("jobTitle", {
+                        required: "Job title is required",
+                      })}
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     />
                     {errors.jobTitle && (
-                      <p className="mt-1 text-sm text-red-600">{errors.jobTitle.message}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.jobTitle.message}
+                      </p>
                     )}
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="jobType" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="jobType"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Job Type*
                     </label>
                     <select
                       id="jobType"
-                      {...register('jobType', { required: 'Job type is required' })}
+                      {...register("jobType", {
+                        required: "Job type is required",
+                      })}
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     >
                       <option value="">Select job type</option>
@@ -347,18 +526,20 @@ export default function HireTalent() {
                       <option value="internship">Internship</option>
                     </select>
                     {errors.jobType && (
-                      <p className="mt-1 text-sm text-red-600">{errors.jobType.message}</p>
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.jobType.message}
+                      </p>
                     )}
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Required Skills*
                   </label>
                   <div className="border border-gray-300 rounded-md p-2 min-h-[100px]">
                     <div className="flex flex-wrap gap-2 mb-2">
-                      {selectedSkills.map(skill => (
+                      {selectedSkills.map((skill) => (
                         <span
                           key={skill}
                           className="inline-flex items-center px-2 py-1 bg-primary/10 text-primary text-sm rounded-full"
@@ -374,20 +555,27 @@ export default function HireTalent() {
                         </span>
                       ))}
                       {selectedSkills.length === 0 && (
-                        <span className="text-gray-500">Select skills below</span>
+                        <span className="text-gray-500">
+                          Select skills below
+                        </span>
                       )}
                     </div>
                     <div className="mt-2 pt-2 border-t">
-                      <div className="text-sm text-gray-600 mb-1">Popular skills:</div>
+                      <div className="text-sm text-gray-600 mb-1">
+                        Popular skills:
+                      </div>
                       <div className="flex flex-wrap gap-2">
-                        {skillOptions.slice(0, 15).map(skill => (
+                        {(showAllSkills
+                          ? skillOptions
+                          : skillOptions.slice(0, 15)
+                        ).map((skill) => (
                           <button
                             key={skill}
                             type="button"
                             className={`px-2 py-1 text-xs rounded-full ${
                               selectedSkills.includes(skill)
-                                ? 'bg-primary text-white'
-                                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                                ? "bg-primary text-white"
+                                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                             }`}
                             onClick={() => toggleSkill(skill)}
                           >
@@ -396,41 +584,53 @@ export default function HireTalent() {
                         ))}
                         <button
                           type="button"
+                          onClick={() => setShowAllSkills(!showAllSkills)}
                           className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-800"
                         >
-                          + More skills
+                          {showAllSkills ? "Show Less" : "+ More skills"}
                         </button>
                       </div>
                     </div>
                   </div>
                   {selectedSkills.length === 0 && (
-                    <p className="mt-1 text-sm text-red-600">Please select at least one skill</p>
+                    <p className="mt-1 text-sm text-red-600">
+                      Please select at least one skill
+                    </p>
                   )}
                 </div>
-                
+
                 <div>
-                  <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="description"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Job Description*
                   </label>
                   <textarea
                     id="description"
                     rows={6}
-                    {...register('description', { required: 'Job description is required' })}
+                    {...register("description", {
+                      required: "Job description is required",
+                    })}
                     className="w-full p-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     placeholder="Please provide details about the role, responsibilities, and requirements"
                   ></textarea>
                   {errors.description && (
-                    <p className="mt-1 text-sm text-red-600">{errors.description.message}</p>
+                    <p className="mt-1 text-sm text-red-600">
+                      {errors.description.message}
+                    </p>
                   )}
                 </div>
-                
+
                 <div>
                   <Button
                     type="submit"
                     disabled={loading || selectedSkills.length === 0}
                     fullWidth
                   >
-                    {loading ? 'Submitting Request...' : 'Submit Talent Request'}
+                    {loading
+                      ? "Submitting Request..."
+                      : "Submit Talent Request"}
                   </Button>
                 </div>
               </form>
@@ -438,46 +638,64 @@ export default function HireTalent() {
           )}
         </div>
       </Section>
-      
+
       {/* Talent Profile Modal */}
       {selectedProfile && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" onClick={closeProfile}>
-          <div 
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={closeProfile}
+        >
+          <div
             className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-auto"
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6">
               <div className="flex flex-col sm:flex-row items-center sm:items-start mb-6">
-                <img 
-                  src={selectedProfile.image} 
-                  alt={selectedProfile.name} 
+                <img
+                  src={selectedProfile.image}
+                  alt={selectedProfile.name}
                   className="w-32 h-32 rounded-full object-cover mb-4 sm:mb-0 sm:mr-6"
                 />
                 <div>
                   <h3 className="text-2xl font-bold">{selectedProfile.name}</h3>
-                  <p className="text-xl text-primary mb-2">{selectedProfile.role}</p>
-                  <p className="text-gray-600 mb-2">{selectedProfile.experience} experience</p>
+                  <p className="text-xl text-primary mb-2">
+                    {selectedProfile.role}
+                  </p>
+                  <p className="text-gray-600 mb-2">
+                    {selectedProfile.experience} experience
+                  </p>
                   <p className="text-gray-600">{selectedProfile.education}</p>
                 </div>
                 <button
                   className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
                   onClick={closeProfile}
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>
-              
+
               <div className="mb-4">
                 <h4 className="font-semibold text-lg mb-2">About</h4>
                 <p className="text-gray-700">{selectedProfile.bio}</p>
               </div>
-              
+
               <div className="mb-6">
                 <h4 className="font-semibold text-lg mb-2">Skills</h4>
                 <div className="flex flex-wrap gap-2">
-                  {selectedProfile.skills.map(skill => (
+                  {selectedProfile.skills.map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
@@ -487,18 +705,17 @@ export default function HireTalent() {
                   ))}
                 </div>
               </div>
-              
+
               <div className="flex justify-end space-x-3 border-t pt-4">
-                <Button
-                  variant="outline"
-                  onClick={closeProfile}
-                >
+                <Button variant="outline" onClick={closeProfile}>
                   Close
                 </Button>
                 <Button
                   onClick={() => {
                     closeProfile();
-                    document.getElementById('hire-form')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("hire-form")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
                   Request This Talent
@@ -510,4 +727,4 @@ export default function HireTalent() {
       )}
     </div>
   );
-} 
+}

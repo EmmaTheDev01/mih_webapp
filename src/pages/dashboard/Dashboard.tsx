@@ -21,7 +21,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchAppointments = async () => {
-      if (!currentUser) return;
+      // if (!currentUser) return;
 
       try {
         // This is just a placeholder for the actual Firestore query

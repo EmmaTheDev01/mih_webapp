@@ -17,7 +17,6 @@ export default function CtaSection() {
         >
           Ready to Join Our Innovation Community?
         </motion.h2>
-        
         <motion.p 
           className="text-xl mb-8 opacity-90"
           initial={{ opacity: 0, y: 20 }}
@@ -36,10 +35,10 @@ export default function CtaSection() {
           viewport={{ once: true }}
         >
           <Link to="/appointment">
-            <Button variant="accent" size="lg">Book a Visit</Button>
+            <Button variant='primary'>Book a Visit</Button>
           </Link>
           <Link to="/signup">
-            <Button variant="secondary" size="lg">Sign Up Now</Button>
+            <Button variant="secondary">Sign Up Now</Button>
           </Link>
         </motion.div>
       </div>

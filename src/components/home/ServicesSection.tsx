@@ -109,7 +109,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Static divider (temporarily replacing Interactive 3D element) */}
-      <div className="relative h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full max-w-md mx-auto mb-16"></div>
+      <div className="relative h-1 bg-gradient-to-r from-[#d30f12] to-[#d30f13] rounded-full max-w-md mx-auto mb-16"></div>
       
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
