@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../contexts/AuthContext';
+import axios from 'axios';
 import Button from '../../components/common/Button';
 
 type FormData = {
@@ -13,20 +13,30 @@ export default function SignIn() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
   const navigate = useNavigate();
 
   const onSubmit = async (data: FormData) => {
     try {
-      setError('');
-      setLoading(true);
-      await login(data.email, data.password);
-      navigate('/dashboard');
-    } catch (err) {
+      setError('');  // Clear any existing errors
+      setLoading(true);  // Set loading state
+
+      // Make API request to the backend login endpoint
+      const response = await axios.post('http://localhost:5500/api/v1/auth/login', {
+        email: data.email,
+        password: data.password,
+      }, { withCredentials: true });  // withCredentials ensures cookies are sent with request
+
+      if (response.status === 200) {
+        // Successful login
+        console.log('Login successful');
+        navigate('/dashboard');  // Navigate to dashboard on successful login
+      }
+    } catch (err: any) {
+      // Handle error during login
       setError('Failed to sign in. Please check your credentials.');
-      console.error(err);
+      console.error('Login Error:', err.response ? err.response.data : err.message);
     } finally {
-      setLoading(false);
+      setLoading(false);  // Reset loading state
     }
   };
 
@@ -123,4 +133,4 @@ export default function SignIn() {
       </div>
     </div>
   );
-} 
+}
